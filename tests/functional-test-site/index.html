@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>pushstate-anchor</title>
+    <script src="/src/pushstate-anchor.js"></script>
+  </head>
+  <body>
+    <style>
+      a {
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+
+    <a href="/link-from-1992">A link from 1992</a>
+    <a is="pushstate-anchor" href="/pushstate">/pushstate</a>
+    <a is="pushstate-anchor" pushstate href="/pushstate-with-title-and-state" title="New Title" state='{"message":"pushState() with title and state"}'>/pushstate-with-title-and-state</a>
+
+    <script>
+      window.addEventListener('popstate', function(event) {
+        console.log('state changed');
+        console.log(event);
+        event.preventDefault();
+      }, false);
+    </script>
+  </body>
+</html>
