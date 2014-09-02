@@ -1,7 +1,7 @@
 ## &lt;a is="pushstate-anchor"&gt;
 > Extend the `<a>` tag with `history.pushState()`
 >
-> The simpified version of the [pushstate-anchor](https://github.com/erikringsmuth/pushstate-anchor)
+> The simpified version of the [html5-history-anchor](https://github.com/erikringsmuth/html5-history-anchor)
 
 A link from 1992.
 ```html
@@ -15,7 +15,8 @@ Now using `pushState()`.
 
 A complete example.
 ```html
-<a is="pushstate-anchor" href="/home" title="Home Page" state='{"message":"New State!"}'>Home</a>
+<a is="pushstate-anchor" href="/home"
+   title="Home Page" state='{"message":"New State!"}'>Home</a>
 ```
 
 Clicking this link calls the HTML5 history API.
