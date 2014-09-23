@@ -18,5 +18,8 @@
     "tests",
     "gulpfile.js",
     "package.json"
-  ]
+  ],
+  "devDependencies": {
+    "platform": "Polymer/platform#~0.4.1"
+  }
 }
