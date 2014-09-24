@@ -11,8 +11,10 @@
       return;
     }
 
+    // push state into the history stack
     window.history.pushState(JSON.parse(this.getAttribute('state')), this.getAttribute('title'), this.getAttribute('href'));
 
+    // dispatch a popstate event
     try {
       var popstateEvent = new PopStateEvent('popstate', {
         bubbles: false,
@@ -21,7 +23,7 @@
       });
 
       if ('dispatchEvent_' in window) {
-        // FireFox polyfil
+        // FireFox with polyfill
         window.dispatchEvent_(popstateEvent);
       } else {
         // normal
@@ -34,6 +36,7 @@
       window.dispatchEvent(evt);
     }
 
+    // prevent the default link click
     event.preventDefault();
   }
 
