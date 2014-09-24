@@ -1,6 +1,6 @@
 {
   "name": "pushstate-anchor",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "authors": [
     "Erik Ringsmuth <erik.ringsmuth@gmail.com>"
   ],
@@ -20,6 +20,6 @@
     "package.json"
   ],
   "devDependencies": {
-    "platform": "Polymer/platform#~0.4.1"
+    "platform-dev": "Polymer/platform-dev#~0.4.1"
   }
 }
