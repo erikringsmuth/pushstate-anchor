@@ -11,7 +11,7 @@
       return;
     }
 
-    // Ignore cross-origin requests
+    // don't pushState if the URL is for a different host
     var href = this.getAttribute('href');
     if (href.startsWith("http") && window.location.host !== new URL(href).host) {
       return;
