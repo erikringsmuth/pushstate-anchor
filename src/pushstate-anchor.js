@@ -6,13 +6,14 @@
   var HTMLPushStateAnchorElement = Object.create(HTMLAnchorElement.prototype);
 
   function pushStateAnchorEventListener(event) {
-    // open in new tab
-    if (event.ctrlKey || event.metaKey || event.which === 2) {
+    var href = this.getAttribute('href');
+    // open in new tab or cross-origin requests
+    if (event.ctrlKey || event.metaKey || event.which === 2 || href.startsWith("http") && window.location.host !== new URL(href).host) {
       return;
     }
 
     // push state into the history stack
-    window.history.pushState(JSON.parse(this.getAttribute('state')), this.getAttribute('title'), this.getAttribute('href'));
+    window.history.pushState(JSON.parse(this.getAttribute('state')), this.getAttribute('title'), href);
 
     // dispatch a popstate event
     try {
@@ -42,6 +43,10 @@
 
   HTMLPushStateAnchorElement.createdCallback = function() {
     this.addEventListener('click', pushStateAnchorEventListener, false);
+  };
+
+  HTMLPushStateAnchorElement.detachedCallback = function() {
+    this.removeEventListener('click', pushStateAnchorEventListener, false);
   };
 
   document.registerElement('pushstate-anchor', {
