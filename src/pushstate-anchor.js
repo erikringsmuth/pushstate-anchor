@@ -6,9 +6,14 @@
   var HTMLPushStateAnchorElement = Object.create(HTMLAnchorElement.prototype);
 
   function pushStateAnchorEventListener(event) {
+    // open in new tab
+    if (event.ctrlKey || event.metaKey || event.which === 2) {
+      return;
+    }
+
+    // Ignore cross-origin requests
     var href = this.getAttribute('href');
-    // open in new tab or cross-origin requests
-    if (event.ctrlKey || event.metaKey || event.which === 2 || href.startsWith("http") && window.location.host !== new URL(href).host) {
+    if (href.startsWith("http") && window.location.host !== new URL(href).host) {
       return;
     }
 
