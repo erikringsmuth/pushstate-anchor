@@ -13,7 +13,7 @@
 
     // don't pushState if the URL is for a different host
     var href = this.getAttribute('href');
-    if (href.indexOf("http") === 0 && window.location.host !== new URL(href).host) {
+    if (href.indexOf('http') === 0 && window.location.host !== new URL(href).host) {
       return;
     }
 
