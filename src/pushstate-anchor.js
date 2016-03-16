@@ -18,7 +18,7 @@
     }
 
     // push state into the history stack
-    window.history.pushState(JSON.parse(this.getAttribute('state')), this.getAttribute('title'), href);
+    window.history.pushState(JSON.parse(this.getAttribute('state')) || window.history.state, this.getAttribute('title'), href);
 
     // dispatch a popstate event
     try {
