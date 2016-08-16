@@ -46,7 +46,7 @@
     event.preventDefault();
   }
 
-  HTMLPushStateAnchorElement.createdCallback = function() {
+  HTMLPushStateAnchorElement.attachedCallback = function() {
     this.addEventListener('click', pushStateAnchorEventListener, false);
   };
 
