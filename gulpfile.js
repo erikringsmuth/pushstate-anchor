@@ -29,17 +29,11 @@ gulp.task('minify', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.run('lint', 'build', 'minify');
-  gulp.watch(files, function() {
-    gulp.run('lint', 'build', 'minify');
-  });
+//  gulp.run('lint', 'build', 'minify');
+  gulp.watch(files, ['lint', 'build', 'minify']);
 });
 
-gulp.task('default', function() {
-  gulp.run('lint', 'build', 'minify');
-});
+gulp.task('default', ['lint', 'build', 'minify']);
 
 // CI build
-gulp.task('ci', function(){
-  gulp.run('lint');
-});
+gulp.task('ci', ['lint']);
