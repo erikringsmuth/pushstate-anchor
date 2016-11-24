@@ -11,9 +11,13 @@
       return;
     }
 
-    // don't pushState if the URL is for a different host
     var href = this.getAttribute('href');
-    if (href && href.indexOf('http') === 0 && window.location.host !== new URL(href).host) {
+    if (!href) {
+      return;
+    }
+
+    // don't pushState if the URL is for a different host
+    if (href.indexOf('http') === 0 && window.location.host !== new URL(href).host) {
       return;
     }
 
