@@ -6,8 +6,8 @@
   var HTMLPushStateAnchorElement = Object.create(HTMLAnchorElement.prototype);
 
   function pushStateAnchorEventListener(event) {
-    // open in new tab
-    if (event.ctrlKey || event.metaKey || event.which === 2) {
+    // open in new tab or open context menu (workaround for Firefox)
+    if (event.ctrlKey || event.metaKey || event.which === 2 || event.which === 3) {
       return;
     }
 
